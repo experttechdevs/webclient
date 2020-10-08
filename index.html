@@ -5,7 +5,7 @@
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
+request.open('GET', 'http://noteservice.eastus.azurecontainer.io/api/Notes', true)
 
 request.onload = function () {
     // Begin accessing JSON data here
@@ -19,12 +19,12 @@ request.onload = function () {
 
             // Create an h3 and set the text content to the film's title
             const h3 = document.createElement('h3')
-            h3.textContent = movie.title
+            h3.textContent = movie.AddedBy
 
             // Create a p and set the text content to the film's description
             const p = document.createElement('p')
             movie.description = movie.description.substring(0, 120) // Limit to 120 chars
-            p.textContent = `${movie.description}...` // End with an ellipses
+            p.textContent = `${movie.Notes}...` // End with an ellipses
 
             // Append h3 and p to the card element
             card.appendChild(h3)
